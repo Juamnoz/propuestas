@@ -373,7 +373,7 @@ export default function Proposal() {
               <div className="price-left">
                 <div className="price-label">Gestión mensual Meta Ads</div>
                 <div className="price-value">
-                  <Counter to={3600000} format={fmtMoney} />
+                  <Counter to={4200000} format={fmtMoney} />
                 </div>
                 <div className="price-period">COP + IVA · facturado mensualmente</div>
               </div>
