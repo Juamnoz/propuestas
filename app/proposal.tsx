@@ -1,7 +1,11 @@
 "use client";
 
 import { motion, useInView, useMotionValue, useTransform, animate } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+
+const DEADLINE_ISO = "2026-05-14T23:59:59-05:00";
+const DEADLINE_MS = new Date(DEADLINE_ISO).getTime();
+const DEADLINE_LABEL = "14 de mayo de 2026 · 23:59 COT";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -48,6 +52,71 @@ function Counter({ to, prefix = "", suffix = "", decimals = 0, format, className
 
 const fmtNum = (v: number) => Math.round(v).toLocaleString("es-CO");
 const fmtMoneyM = (v: number) => `$${v.toFixed(2)}M`;
+
+function useCountdown(deadlineMs: number) {
+  const [remaining, setRemaining] = useState<number | null>(null);
+  useEffect(() => {
+    const tick = () => setRemaining(Math.max(0, deadlineMs - Date.now()));
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, [deadlineMs]);
+  return remaining;
+}
+
+function pad(n: number) {
+  return n.toString().padStart(2, "0");
+}
+
+function Countdown({ deadlineMs, compact = false }: { deadlineMs: number; compact?: boolean }) {
+  const remaining = useCountdown(deadlineMs);
+  if (remaining === null) {
+    return (
+      <span className={`countdown${compact ? " countdown-compact" : ""}`} suppressHydrationWarning>
+        --:--:--:--
+      </span>
+    );
+  }
+  const expired = remaining <= 0;
+  const totalSec = Math.floor(remaining / 1000);
+  const hours = Math.floor(totalSec / 3600);
+  const minutes = Math.floor((totalSec % 3600) / 60);
+  const seconds = totalSec % 60;
+  const days = Math.floor(hours / 24);
+  const hRem = hours % 24;
+  return (
+    <span
+      className={`countdown${compact ? " countdown-compact" : ""}${expired ? " expired" : ""}`}
+      suppressHydrationWarning
+    >
+      {expired ? (
+        "EXPIRADA"
+      ) : (
+        <>
+          <span className="cd-seg">
+            <span className="cd-num">{pad(days)}</span>
+            <span className="cd-lbl">D</span>
+          </span>
+          <span className="cd-sep">:</span>
+          <span className="cd-seg">
+            <span className="cd-num">{pad(hRem)}</span>
+            <span className="cd-lbl">H</span>
+          </span>
+          <span className="cd-sep">:</span>
+          <span className="cd-seg">
+            <span className="cd-num">{pad(minutes)}</span>
+            <span className="cd-lbl">M</span>
+          </span>
+          <span className="cd-sep">:</span>
+          <span className="cd-seg">
+            <span className="cd-num">{pad(seconds)}</span>
+            <span className="cd-lbl">S</span>
+          </span>
+        </>
+      )}
+    </span>
+  );
+}
 const fmtMoney = (v: number) => `$${Math.round(v).toLocaleString("es-CO")}`;
 
 const insights = [
@@ -169,8 +238,9 @@ export default function Proposal() {
               </div>
             </motion.div>
             <motion.div className="header-right" variants={fadeUp}>
-              <div>Ref. AIC-MOD-2026</div>
-              <div>Válida hasta: 17 May · 2026</div>
+              <div className="cd-label">Tiempo restante</div>
+              <Countdown deadlineMs={DEADLINE_MS} />
+              <div className="cd-ref">Ref. AIC-MOD-2026</div>
             </motion.div>
           </motion.div>
 
@@ -398,8 +468,13 @@ export default function Proposal() {
             transition={{ duration: 0.5 }}
           >
             <div className="validity-dot" />
-            Propuesta válida por 5 días · Fecha límite: 17 de mayo de 2026 · Para iniciar escríbenos
-            a aicstudioai@gmail.com
+            <span className="validity-text">
+              Propuesta válida por 48 horas · Cierra el {DEADLINE_LABEL} ·
+            </span>
+            <Countdown deadlineMs={DEADLINE_MS} compact />
+            <span className="validity-text">
+              · Para iniciar escríbenos a aicstudioai@gmail.com
+            </span>
           </motion.div>
 
           <div className="footer">
