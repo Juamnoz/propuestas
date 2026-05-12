@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "AIC Studio · Propuesta Modulartess",
+  title: "AIC Studio · Gestión Meta Ads para Modulartess",
   description:
-    "Propuesta comercial AIC Studio para Modulartess · Meta Ads · Agentes IA · Métricas 24h",
+    "Gestión de campañas Meta Ads potenciada con 2 agentes IA · Propuesta AIC Studio para Modulartess",
   openGraph: {
-    title: "AIC Studio · Propuesta Modulartess",
-    description: "IA para tus campañas. Meta Ads optimizado en vivo.",
+    title: "AIC Studio · Gestión Meta Ads + IA",
+    description:
+      "Gestión de campañas publicitarias Meta Ads potenciada con dos agentes IA especializados.",
     type: "website",
   },
 };

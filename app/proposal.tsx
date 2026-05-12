@@ -188,13 +188,13 @@ export default function Proposal() {
               Inteligencia Artificial<br />para tus Campañas.
             </motion.h1>
             <motion.div className="hero-sub" variants={fadeUp}>
-              Meta Ads · Agentes IA · Métricas 24h · Optimización en vivo
+              Gestión de campañas Meta Ads · Potenciada por 2 agentes IA · 24h
             </motion.div>
             <motion.p className="hero-desc" variants={fadeUp}>
-              Después de analizar 51 anuncios activos y un presupuesto mensual de $1.683.059 COP en
-              Meta Ads, identificamos oportunidades concretas de mejora. Proponemos acompañar a
-              Modulartess con un equipo especializado en IA que gestiona, analiza y optimiza las
-              campañas en tiempo real.
+              Gestionamos tus campañas publicitarias de Meta Ads (Instagram + Facebook) con un
+              equipo humano potenciado por dos agentes de IA especializados. Tras analizar 51
+              anuncios activos y $1.683.059 COP de inversión mensual, detectamos oportunidades
+              concretas para reducir costo por conversación y reactivar el presupuesto detenido.
             </motion.p>
             <motion.a
               href="mailto:aicstudioai@gmail.com?subject=Iniciar%20propuesta%20AIC-MOD-2026"
@@ -301,11 +301,12 @@ export default function Proposal() {
               <span className="section-num">02</span> Lo que proponemos
             </motion.div>
             <motion.div className="section-title" variants={fadeUp}>
-              Un equipo de IA trabajando para Modulartess.
+              Gestión de campañas Meta Ads potenciada con IA.
             </motion.div>
             <motion.div className="section-body" variants={fadeUp}>
-              Dos agentes especializados, retroalimentación humana constante y disponibilidad 24
-              horas.
+              El núcleo del servicio es la gestión profesional de tus campañas de Meta Ads —
+              creación, segmentación, optimización y reporte — apoyada por dos agentes IA
+              especializados que trabajan 24h con retroalimentación humana constante.
             </motion.div>
 
             <motion.div className="service-grid" variants={stagger}>
@@ -336,7 +337,11 @@ export default function Proposal() {
               <span className="section-num">03</span> Capacidades de los agentes
             </motion.div>
             <motion.div className="section-title" variants={fadeUp}>
-              IA especializada, disponible las 24 horas.
+              Dos agentes IA dedicados a tus campañas Meta Ads.
+            </motion.div>
+            <motion.div className="section-body" variants={fadeUp}>
+              Cada agente está entrenado para una función específica dentro de la gestión publicitaria.
+              Trabajan en paralelo, 24 horas, supervisados por el equipo AIC Studio.
             </motion.div>
 
             <motion.div className="agents-row" variants={stagger}>
@@ -366,7 +371,7 @@ export default function Proposal() {
 
             <motion.div className="price-block" variants={fadeUp}>
               <div className="price-left">
-                <div className="price-label">Valor mensual del servicio</div>
+                <div className="price-label">Gestión mensual Meta Ads</div>
                 <div className="price-value">
                   <Counter to={3600000} format={fmtMoney} />
                 </div>
@@ -374,12 +379,12 @@ export default function Proposal() {
               </div>
               <div className="price-right">
                 <div className="price-includes">Incluye</div>
-                <div className="include-item">Agente de métricas 24h · IA especializada</div>
-                <div className="include-item">Análisis de campañas con IA en tiempo real</div>
+                <div className="include-item">Gestión integral de campañas Meta Ads</div>
+                <div className="include-item">Agente IA de Métricas · 24h</div>
                 <div className="include-item">Optimización en vivo basada en datos</div>
-                <div className="include-item">Gestión estratégica del equipo AIC Studio</div>
+                <div className="include-item">Equipo AIC Studio supervisando estrategia</div>
                 <div className="include-item" style={{ color: "#4ade80" }}>
-                  Agente de respuesta · Primer mes SIN COSTO
+                  Agente IA de Respuesta · Primer mes SIN COSTO
                 </div>
               </div>
             </motion.div>
@@ -404,8 +409,8 @@ export default function Proposal() {
               <div>aicstudioai@gmail.com</div>
             </div>
             <div className="footer-right">
-              <div>Automatización · IA Conversacional</div>
-              <div>WhatsApp Business API · Meta Ads</div>
+              <div>Gestión Meta Ads · IA Conversacional</div>
+              <div>Instagram Ads · Facebook Ads · WhatsApp</div>
               <div style={{ marginTop: 4, color: "rgba(255,255,255,0.15)" }}>
                 AIC-MOD-2026 · Confidencial
               </div>
